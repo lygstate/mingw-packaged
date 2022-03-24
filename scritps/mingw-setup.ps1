@@ -6,6 +6,7 @@ $env:MSYSTEM="MINGW64"
 & "$PSScriptRoot\msys2-prepare.ps1"
 & "$PSScriptRoot\qemu-packages.ps1"
 & "$PSScriptRoot\mesa-packages.ps1"
+& "$PSScriptRoot\extra-packages.ps1"
 
 $env:MSYSTEM="UCRT64"
 & "$PSScriptRoot\msys2-prepare.ps1"

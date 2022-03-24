@@ -1,8 +1,9 @@
 $env:MSYS2_PACKAGES = "$env:MSYS2_PACKAGES
-diffutils git grep make pkg-config sed
+diffutils git grep make sed
 ${env:MINGW_PACKAGE_PREFIX}-python
 ${env:MINGW_PACKAGE_PREFIX}-python-sphinx
 ${env:MINGW_PACKAGE_PREFIX}-toolchain
+${env:MINGW_PACKAGE_PREFIX}-pkgconf
 ${env:MINGW_PACKAGE_PREFIX}-SDL2
 ${env:MINGW_PACKAGE_PREFIX}-SDL2_image
 ${env:MINGW_PACKAGE_PREFIX}-gtk3
