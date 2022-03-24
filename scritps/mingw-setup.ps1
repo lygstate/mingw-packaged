@@ -6,6 +6,18 @@ $env:MSYSTEM="MINGW64"
 & "$PSScriptRoot\msys2-prepare.ps1"
 & "$PSScriptRoot\qemu-packages.ps1"
 & "$PSScriptRoot\mesa-packages.ps1"
+
+$env:MSYSTEM="UCRT64"
+& "$PSScriptRoot\msys2-prepare.ps1"
+& "$PSScriptRoot\qemu-packages.ps1"
+& "$PSScriptRoot\mesa-packages.ps1"
+
+$env:MSYSTEM="CLANG64"
+& "$PSScriptRoot\msys2-prepare.ps1"
+& "$PSScriptRoot\qemu-packages.ps1"
+& "$PSScriptRoot\mesa-packages.ps1"
+
+# Normalize the packages
 $env:MSYS2_PACKAGES = ($env:MSYS2_PACKAGES) -split '\r?\n' -gt 0 -join ' '
 
 Write-Output $env:MSYS2_PACKAGES
