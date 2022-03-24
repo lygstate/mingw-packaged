@@ -1,3 +1,13 @@
-$env:MSYS = "winsymlinks:nativestrict"
-$env:MSYS2_FINGERPRINT = "0"
-$env:MSYS2_URL = "https://github.com/msys2/msys2-installer/releases/download/2022-03-19/msys2-base-x86_64-20220319.sfx.exe"
+# Look at  https://www.msys2.org/docs/environments/
+# and https://packages.msys2.org/base/mingw-w64-meson
+
+$hash = [ordered]@{
+    MINGW64 = "mingw-w64-x86_64";
+    UCRT64 = "mingw-w64-ucrt-x86_64";
+    CLANG64 = "mingw-w64-clang-x86_64";
+    MINGW32 = "mingw-w64-i686";
+    CLANG32 = "mingw-w64-clang-i686";
+    CLANGARM64 = "mingw-w64-clang-aarch64";
+}
+
+$env:MINGW_PACKAGE_PREFIX=$hash["$env:MSYSTEM"]
