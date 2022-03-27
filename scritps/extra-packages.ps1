@@ -1,3 +1,5 @@
+$MINGW_PACKAGE_PREFIX=$env:MINGW_PACKAGE_PREFIX
+
 $env:MSYS2_PACKAGES = "$env:MSYS2_PACKAGES
 base-devel
 autotools
@@ -26,9 +28,9 @@ unrar
 reflex
 libunrar-devel
 btyacc
-${env:MINGW_PACKAGE_PREFIX}-cmake
-${env:MINGW_PACKAGE_PREFIX}-gdb
-${env:MINGW_PACKAGE_PREFIX}-gdb-multiarch
-${env:MINGW_PACKAGE_PREFIX}-libuv
-${env:MINGW_PACKAGE_PREFIX}-spirv-tools
+${MINGW_PACKAGE_PREFIX}-cmake
+${MINGW_PACKAGE_PREFIX}-gdb
+${MINGW_PACKAGE_PREFIX}-gdb-multiarch
+${MINGW_PACKAGE_PREFIX}-libuv
+${MINGW_PACKAGE_PREFIX}-spirv-tools
 "

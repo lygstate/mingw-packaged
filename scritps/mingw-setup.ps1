@@ -2,6 +2,12 @@ $env:MSYS = "winsymlinks:nativestrict"
 $env:MSYS2_FINGERPRINT = "0"
 $env:MSYS2_URL = "https://github.com/msys2/msys2-installer/releases/download/2022-03-19/msys2-base-x86_64-20220319.sfx.exe"
 
+$env:MSYSTEM="MINGW32"
+& "$PSScriptRoot\msys2-prepare.ps1"
+& "$PSScriptRoot\qemu-packages.ps1"
+& "$PSScriptRoot\mesa-packages.ps1"
+& "$PSScriptRoot\extra-packages.ps1"
+
 $env:MSYSTEM="MINGW64"
 & "$PSScriptRoot\msys2-prepare.ps1"
 & "$PSScriptRoot\qemu-packages.ps1"
@@ -12,11 +18,13 @@ $env:MSYSTEM="UCRT64"
 & "$PSScriptRoot\msys2-prepare.ps1"
 & "$PSScriptRoot\qemu-packages.ps1"
 & "$PSScriptRoot\mesa-packages.ps1"
+& "$PSScriptRoot\extra-packages.ps1"
 
 $env:MSYSTEM="CLANG64"
 & "$PSScriptRoot\msys2-prepare.ps1"
 & "$PSScriptRoot\qemu-packages.ps1"
 & "$PSScriptRoot\mesa-packages.ps1"
+& "$PSScriptRoot\extra-packages.ps1"
 
 # Normalize the packages
 $env:MSYS2_PACKAGES = ($env:MSYS2_PACKAGES) -split '\r?\n' -gt 0 -join ' '
@@ -44,6 +52,7 @@ $start_time = Get-Date
 Remove-Item -Force -ErrorAction SilentlyContinue -Recurse C:\tools\msys64\var\cache\pacman\pkg
 Move-Item C:\tools\pkg C:\tools\msys64\var\cache\pacman\pkg
 
+$env:MSYSTEM="MSYS"
 ((Get-Content -path C:\tools\msys64\etc\\post-install\\07-pacman-key.post -Raw) -replace '--refresh-keys', '--version') | Set-Content -Path C:\tools\msys64\etc\\post-install\\07-pacman-key.post
 C:\tools\msys64\usr\bin\bash.exe -lc "sed -i 's/^CheckSpace/#CheckSpace/g' /etc/pacman.conf"
 C:\tools\msys64\usr\bin\bash.exe -lc "export"
