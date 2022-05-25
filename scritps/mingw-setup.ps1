@@ -38,7 +38,7 @@ Remove-Item -Force -ErrorAction SilentlyContinue -Recurse C:\tools\archive
 # Downloading msys2 installer as C:\tools\archive\base.exe
 mkdir -Force C:\tools\archive
 $start_time = Get-Date
-bitsadmin /transfer msys_download /dynamic /download /priority FOREGROUND $env:MSYS2_URL C:\tools\archive\base.exe
+curl.exe --output C:\tools\archive\base.exe -LJO $env:MSYS2_URL
 Write-Output "Download time taken: $((Get-Date).Subtract($start_time))"
 
 # Install msys64 to C:\tools\msys64
