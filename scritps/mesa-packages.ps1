@@ -10,11 +10,14 @@ ${MINGW_PACKAGE_PREFIX}-libelf"
 
 # depends
 $env:MSYS2_PACKAGES = "$env:MSYS2_PACKAGES
+${MINGW_PACKAGE_PREFIX}-glslang
 ${MINGW_PACKAGE_PREFIX}-llvm
-${MINGW_PACKAGE_PREFIX}-zlib
+${MINGW_PACKAGE_PREFIX}-clang
+${MINGW_PACKAGE_PREFIX}-libclc
+${MINGW_PACKAGE_PREFIX}-spirv-tools
+${MINGW_PACKAGE_PREFIX}-spirv-llvm-translator
 ${MINGW_PACKAGE_PREFIX}-vulkan-loader
-${MINGW_PACKAGE_PREFIX}-libsystre
-${MINGW_PACKAGE_PREFIX}-libwinpthread-git
+${MINGW_PACKAGE_PREFIX}-zlib
 ${MINGW_PACKAGE_PREFIX}-zstd"
 
 # optdepends
