@@ -1,6 +1,6 @@
 $env:MSYS = "winsymlinks:nativestrict"
 $env:MSYS2_FINGERPRINT = "0"
-$env:MSYS2_URL = "https://github.com/msys2/msys2-installer/releases/download/2022-05-03/msys2-base-x86_64-20220503.sfx.exe"
+$env:MSYS2_URL = "https://github.com/msys2/msys2-installer/releases/download/2022-09-04/msys2-base-x86_64-20220904.sfx.exe"
 
 $env:MSYSTEM="MINGW32"
 & "$PSScriptRoot\msys2-prepare.ps1"
