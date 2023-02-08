@@ -2,6 +2,9 @@ $env:MSYS = "winsymlinks:nativestrict"
 $env:MSYS2_FINGERPRINT = "0"
 $env:MSYS2_URL = "https://github.com/msys2/msys2-installer/releases/download/2023-01-27/msys2-base-x86_64-20230127.sfx.exe"
 
+$env:MSYS2_PACKAGES = ""
+$env:MESA_PACKAGES = ""
+
 $env:MSYSTEM="MINGW32"
 & "$PSScriptRoot\msys2-prepare.ps1"
 & "$PSScriptRoot\qemu-packages.ps1"
@@ -34,7 +37,7 @@ $env:MSYSTEM="CLANG32"
 
 # Normalize the packages
 $env:MSYS2_PACKAGES = ($env:MSYS2_PACKAGES) -split '\r?\n' -gt 0 -join ' '
-
+$env:MESA_PACKAGES = ($env:MESA_PACKAGES) -split '\r?\n' -gt 0 -join ' '
 Write-Output $env:MSYS2_PACKAGES
 Write-Output $env:MSYS2_URL
 Write-Output fingerprint:$env:MSYS2_FINGERPRINT
@@ -71,9 +74,14 @@ C:\tools\msys64\usr\bin\bash.exe -lc "pacman --noconfirm -Syuu --overwrite=*"
 Write-Output "Core install time taken: $((Get-Date).Subtract($start_time))"
 $start_time = Get-Date
 
+C:\tools\msys64\usr\bin\bash.exe -lc "pacman --noconfirm -S --needed $env:MESA_PACKAGES"
+Write-Output "Package install time taken: $((Get-Date).Subtract($start_time))"
+$start_time = Get-Date
+
 C:\tools\msys64\usr\bin\bash.exe -lc "pacman --noconfirm -S --needed $env:MSYS2_PACKAGES"
 Write-Output "Package install time taken: $((Get-Date).Subtract($start_time))"
 $start_time = Get-Date
+
 
 Remove-Item -Force -ErrorAction SilentlyContinue C:\tools\msys64\etc\mtab
 Remove-Item -Force -ErrorAction SilentlyContinue C:\tools\msys64\dev\fd
