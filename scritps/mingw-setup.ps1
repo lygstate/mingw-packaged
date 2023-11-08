@@ -1,6 +1,6 @@
 $env:MSYS = "winsymlinks:nativestrict"
 $env:MSYS2_FINGERPRINT = "0"
-$env:MSYS2_URL = "https://github.com/msys2/msys2-installer/releases/download/2023-03-18/msys2-base-x86_64-20230318.sfx.exe"
+$env:MSYS2_URL = "https://github.com/msys2/msys2-installer/releases/download/2023-07-18/msys2-base-x86_64-20230718.sfx.exe"
 
 $env:MSYS2_PACKAGES = ""
 $env:MESA_PACKAGES = ""
