@@ -1,7 +1,7 @@
 # See https://www.msys2.org/dev/mirrors
 
 ## Primary
-Server = https://mirror.msys2.org/mingw/x86_64/
+Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/x86_64/
 Server = https://repo.msys2.org/mingw/x86_64/
 
 ## Tier 1

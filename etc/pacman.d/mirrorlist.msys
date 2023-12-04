@@ -1,7 +1,7 @@
 # See https://www.msys2.org/dev/mirrors
 
 ## Primary
-Server = https://mirror.msys2.org/msys/$arch/
+Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/msys/$arch/
 Server = https://repo.msys2.org/msys/$arch/
 
 ## Tier 1

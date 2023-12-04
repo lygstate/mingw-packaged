@@ -1,7 +1,7 @@
 # See https://www.msys2.org/dev/mirrors
 
 ## Primary
-Server = https://mirror.msys2.org/mingw/i686/
+Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/i686/
 Server = https://repo.msys2.org/mingw/i686/
 
 ## Tier 1

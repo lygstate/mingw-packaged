@@ -1,7 +1,7 @@
 # See https://www.msys2.org/dev/mirrors
 
 ## Primary
-Server = https://mirror.msys2.org/mingw/clang64/
+Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/clang64/
 Server = https://repo.msys2.org/mingw/clang64/
 
 ## Tier 1
