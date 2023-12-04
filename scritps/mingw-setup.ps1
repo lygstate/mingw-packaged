@@ -65,14 +65,25 @@ $env:MSYSTEM="MSYS"
 ((Get-Content -path C:\tools\msys64\etc\\post-install\\07-pacman-key.post -Raw) -replace '--refresh-keys', '--version') | Set-Content -Path C:\tools\msys64\etc\\post-install\\07-pacman-key.post
 C:\tools\msys64\usr\bin\bash.exe -lc "sed -i 's/^CheckSpace/#CheckSpace/g' /etc/pacman.conf"
 C:\tools\msys64\usr\bin\bash.exe -lc "export"
+
+Write-Output "Update mirrorlist 1"
+Copy-Item -Path $PSScriptRoot\..\etc\pacman.d\mirrorlist.* -Destination C:\tools\msys64\etc\pacman.d\
+
 C:\tools\msys64\usr\bin\pacman.exe --noconfirm -Sy
 Write-Output Y | C:\tools\msys64\usr\bin\pacman.exe --noconfirm -Suu --overwrite=*
 taskkill /F /FI "MODULES eq msys-2.0.dll"
 tasklist
+
+Write-Output "Update mirrorlist 2"
+Copy-Item -Path $PSScriptRoot\..\etc\pacman.d\mirrorlist.* -Destination C:\tools\msys64\etc\pacman.d\
+
 C:\tools\msys64\usr\bin\bash.exe -lc "mv -f /etc/pacman.conf.pacnew /etc/pacman.conf || true"
 C:\tools\msys64\usr\bin\bash.exe -lc "pacman --noconfirm -Syuu --overwrite=*"
 Write-Output "Core install time taken: $((Get-Date).Subtract($start_time))"
 $start_time = Get-Date
+
+Write-Output "Update mirrorlist 3"
+Copy-Item -Path $PSScriptRoot\..\etc\pacman.d\mirrorlist.* -Destination C:\tools\msys64\etc\pacman.d\
 
 C:\tools\msys64\usr\bin\bash.exe -lc "pacman --noconfirm -S --needed $env:MESA_PACKAGES"
 Write-Output "Package install time taken: $((Get-Date).Subtract($start_time))"
