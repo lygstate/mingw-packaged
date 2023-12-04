@@ -3,6 +3,8 @@ $MINGW_PACKAGE_PREFIX=$env:MINGW_PACKAGE_PREFIX
 $env:MSYS2_PACKAGES = "$env:MSYS2_PACKAGES
 base-devel
 autotools
+bison
+flex
 cmake
 python
 gcc
