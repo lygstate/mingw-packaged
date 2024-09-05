@@ -5,7 +5,7 @@ $env:MSYS2_URL = "https://github.com/msys2/msys2-installer/releases/download/202
 $env:MSYS2_PACKAGES = ""
 $env:MESA_PACKAGES = ""
 
-$env:MSYSTEM="MINGW64"
+$env:MSYSTEM="MINGW32"
 & "$PSScriptRoot\msys2-prepare.ps1"
 & "$PSScriptRoot\scade-packages.ps1"
 
