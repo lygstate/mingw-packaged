@@ -1,6 +1,6 @@
 $env:MSYS = "winsymlinks:nativestrict"
 $env:MSYS2_FINGERPRINT = "0"
-$env:MSYS2_URL = "https://github.com/msys2/msys2-installer/releases/download/2024-05-07/msys2-base-x86_64-20240507.sfx.exe"
+$env:MSYS2_URL = "https://github.com/msys2/msys2-installer/releases/download/2025-06-22/msys2-base-x86_64-20250622.sfx.exe"
 
 $env:MSYS2_PACKAGES = ""
 $env:MESA_PACKAGES = ""
@@ -24,12 +24,6 @@ $env:MSYSTEM="MINGW64"
 #& "$PSScriptRoot\extra-packages.ps1"
 
 #$env:MSYSTEM="CLANG64"
-#& "$PSScriptRoot\msys2-prepare.ps1"
-#& "$PSScriptRoot\qemu-packages.ps1"
-#& "$PSScriptRoot\mesa-packages.ps1"
-#& "$PSScriptRoot\extra-packages.ps1"
-
-#$env:MSYSTEM="CLANG32"
 #& "$PSScriptRoot\msys2-prepare.ps1"
 #& "$PSScriptRoot\qemu-packages.ps1"
 #& "$PSScriptRoot\mesa-packages.ps1"
